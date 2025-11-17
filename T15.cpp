@@ -1,43 +1,54 @@
-// T15：三数之和
+// T15：三数之和 # 三指针（核心在于去重）
 #include <vector>
 #include <iostream>
 #include <unordered_map>
 #include <unordered_set>
 
 using namespace std;
-class Solution
-{
+class Solution {
 public:
-    vector<vector<int>> threeSum(vector<int> &nums)
-    {
-        vector<vector<int>> res;
-        int len = size(nums);
-        for (int i = 0; i < len; i++)
-        {
-            int rest_sum = -1 * nums[i];
-            unordered_map<int, int> hmap;
-            unordered_set<int> set;
-            for (int j = 0; j < len; j++)
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        vector<vector<int>> result;
+        int n = nums.size();
+        for (int i = 0;i<n;i++){
+            // cout << "i " << i << endl;
+            if (i > 0 && nums[i-1] == nums[i]) continue;
+            int sum = - nums[i];
+            int start = i + 1,end = n - 1;
+            while(start < end)
             {
-                if (j == i)
-                    continue;
-                if (hmap.count(nums[j]))
-                {
-                    int sum = abs(nums[i]) + abs(nums[j]) + abs(rest_sum - nums[j]);
-                    if (!set.count(sum))
-                    {
-                        cout << nums[i] << nums[j] << rest_sum - nums[j] << endl;
-                        cout << sum << endl;
-                        res.push_back({nums[i], nums[j], rest_sum - nums[j]});
-                        set.insert(sum);
+                if (nums[start] + nums[end] < sum){
+                    start ++;
+                    while(nums[start] == nums[start - 1]){
+                        start++;
+                        if (start>=end){
+                            break;
+                        }
                     }
                 }
-                hmap[rest_sum - nums[j]] = nums[j];
+                else if (nums[start] + nums[end] > sum ){
+                    end --;
+                    while(nums[end] == nums[end + 1]){
+                        end --;
+                        if (end <= i ) break;
+                    }
+                }
+                else{
+                    // -4 -1 -1 0 1 2
+                    vector <int> v0 = {nums[i],nums[start],nums[end]};
+                    result.push_back(v0);
+                    // cout << "内部"<< start << " " << end << endl;
+                    start ++;end --;
+                    while(nums[start] == nums[start - 1]) {start++;if(start >= n) break;}
+                    while(nums[end] == nums[end + 1]) {end --;if(end <= i) break;}
+                }
             }
         }
-        return res;
+        return result;
     }
 };
+
 int main()
 {
     Solution sol;
