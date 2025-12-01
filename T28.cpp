@@ -10,16 +10,17 @@ public:
     {
         vector<int> next;
         next = get_next(needle);
+        return 0;
     }
     vector<int> get_next(string needle)
     {
         int i = 1, len = needle.size(), j = 0;
-        vector<int> next(0, len + 1);
+        vector<int> next(len, 0);
         while (i < len)
         {
             if (needle[i] == needle[j])
             {
-                next[i] += 1;
+                next[i] += next[i - 1] + 1;
                 j++;
                 i++;
             }
@@ -34,3 +35,11 @@ public:
 };
 
 // 测试
+int main()
+{
+    string haystack = "sadbutsad";
+    string needle = "ababc";
+    Solution sol;
+    int ans = sol.strStr(haystack, needle);
+    cout << ans << endl;
+}
