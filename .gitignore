@@ -1,0 +1,10 @@
+# Debug symbols
+*.dSYM/
+
+# Compiled executables
+T*
+!T*.cpp
+!T*.py
+
+# Temporary files
+temp
