@@ -1,10 +1,58 @@
 # Debug symbols
 *.dSYM/
 
-# Compiled executables
-T*
-!T*.cpp
-!T*.py
+# Compiled executables (binaries without extension)
+/155
+/T1
+/T2
+/T9
+/T11
+/T15
+/T19
+/T21
+/T27
+/T28
+/T34
+/T35
+/T42
+/T55
+/T88
+/T98
+/T101
+/T102
+/T104
+/T108
+/T121
+/T130
+/T136
+/T137
+/T141
+/T155
+/T169
+/T202
+/T206
+/T226
+/T231
+/T234
+/T383
+/T394
+/T543
+/T697
+/T746
+/T912
+/temp
+/a.out
 
-# Temporary files
-temp
+# IDE - JetBrains IntelliJ IDEA
+.idea/
+
+# IDE - Visual Studio Code
+.vscode/launch.json
+.vscode/tasks.json
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
