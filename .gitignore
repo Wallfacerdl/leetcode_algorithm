@@ -6,6 +6,10 @@
 !.gitignore
 !.github/
 !README.md
+!.vscode/
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/settings.json
 
 # Debug symbols
 *.dSYM/
@@ -18,11 +22,6 @@ a.out
 
 # IDE - JetBrains IntelliJ IDEA
 .idea/
-
-# IDE - Visual Studio Code
-.vscode/launch.json
-.vscode/tasks.json
-.vscode/settings.json
 
 # OS files
 .DS_Store

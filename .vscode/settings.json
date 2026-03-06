@@ -1,0 +1,20 @@
+{
+    // C/C++ IntelliSense（本机 Linux）
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+
+    // 语言特定格式化器
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+
+    // 禁用 bash job monitor，避免调试结束后出现 "[1]+ Done gdb..." 噪音
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "/bin/bash",
+            "args": ["-i", "+m"]
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash"
+}
