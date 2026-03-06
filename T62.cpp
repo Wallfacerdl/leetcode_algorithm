@@ -48,8 +48,8 @@ public:
 int main()
 {
     // 法一
-    // Solution1 sol1;
-    // cout << sol1.uniquePaths(3,7) << endl;
-    Solution2 sol2;
-    cout << sol2.uniquePaths(3,7) << endl;
+    Solution1 sol1;
+    cout << sol1.uniquePaths(3,7) << endl;
+    // Solution2 sol2;
+    // cout << sol2.uniquePaths(3,7) << endl;
 }
