@@ -5,6 +5,7 @@ T20：有效的括号 # 哈希匹配 # 栈
 #include <iostream>
 #include <string>
 #include <stack>
+#include <unordered_map>
 using namespace std;
 class Solution
 {
