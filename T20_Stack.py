@@ -24,4 +24,4 @@ class Solution:
             return False
 
 
-Solution().isValid("()")
+print(Solution().isValid("()"))
