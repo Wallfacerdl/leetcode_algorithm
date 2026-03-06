@@ -55,7 +55,7 @@ Files often contain multiple solution implementations with increasing optimizati
 
 ### Compilation Commands
 C++ files compile with standard g++ or clang++:
-- **Debug build**: `g++ -g T{NUMBER}.cpp -o T{NUMBER}` (generates executable + dSYM)
+- **Debug build**: `g++ -g T{NUMBER}.cpp -o T{NUMBER}` (debug symbols embedded in binary)
 - **Direct execution**: `./T{NUMBER}` after compilation
 
 ### Testing Pattern
@@ -69,12 +69,16 @@ int main() {
 }
 ```
 - No external test framework; manual testing via direct execution
-- dSYM directories (.dSYM/) enable debugging with `lldb`
+- Debug symbols are embedded in the binary; use `gdb` for interactive debugging
 
 ## Python Specifics
-- Python files (`.py`) provide equivalent solutions to C++ versions
-- Example: `T70_palouti.py` implements climbing stairs with tuple unpacking
-- Both languages solve identical algorithmic problems for comparison/learning
+- Python files (`.py`) provide equivalent solutions to C++ versions for comparison/learning
+- Naming often includes a descriptive suffix: `T{N}_{descriptor}.py` (e.g., `_stack`, `_huiwen`, `_palouti`)
+- Current examples:
+  - `T1_huiwen.py` — palindrome linked list check
+  - `T20_stack.py` — valid parentheses using a stack
+  - `T70_palouti.py` — climbing stairs with tuple unpacking (space-optimized DP)
+- Not required for every problem; only add a `.py` variant when it illustrates a meaningful comparison
 
 ## Key Development Workflows
 
@@ -91,16 +95,17 @@ int main() {
 - Prefer hash maps for O(1) lookups in validation problems (T20 example)
 
 ### Debugging
-- Compile with `-g` flag for debugging symbols
-- Use lldb: `lldb ./T{NUMBER}` then set breakpoints and step through
-- dSYM directories automatically created; enables IDE debugging integration
+- Compile with `-g` flag for debugging symbols (embedded in ELF binary on Linux)
+- Use gdb: `gdb ./T{NUMBER}` then set breakpoints and step through
+- Enables IDE debugging integration via the embedded debug symbols
 
 ## Language-Specific Notes
 - **C++**: Primary language; uses `#include <iostream>`, `#include <vector>`, etc.
 - **Python**: Secondary; equivalent implementations for comparison
+- **Go**: Planned but not yet used; `.go` files are tracked by `.gitignore` when added
 - Mix languages only for specific algorithm variations (not required for all problems)
 
 ## Conventions NOT to Follow
 - Do NOT create separate optimization files; put all solutions in one file with `Solution`, `Solution2`, etc.
 - Do NOT use external libraries beyond STL (C++) or standard library (Python)
-- Do NOT add verbose documentation files; let well-commented code speak for itself
+- Do NOT add verbose documentation files; a concise `README.md` is acceptable, but per-problem docs are not
